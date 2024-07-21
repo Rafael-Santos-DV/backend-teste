@@ -52,7 +52,7 @@ async function GetUrlsKwai(urls) {
   const links = [];
 
   for await (const [page, response] of promiseAll) {
-    await page.waitForSelector(videoSelector, { timeout: 10000 });
+    await page.waitForSelector(videoSelector, { timeout: 300000 });
     const videoSrc = await page.evaluate((selector) => {
       const videoElement = document.querySelector(selector);
       return videoElement ? videoElement.src : null;
