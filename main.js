@@ -40,7 +40,7 @@ async function GetUrlsKwai(urls) {
 
   const map = urls.map(async (url) => {
     const page = await browser.newPage();
-    const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 })
+    const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 300000 })
 
     return [page, response];
   })
