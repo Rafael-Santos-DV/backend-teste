@@ -2,6 +2,7 @@ import puppeteer from 'puppeteer';
 import Express from 'express'
 import cors from 'cors'
 import crypto from 'crypto';
+import "dotenv/config"
 
 // const urls = ['https://www.kwai.com/@lorenaeestevao040/video/5250221373246074281', 'https://www.kwai.com/@Dacostagab/video/5252754598425194082', 'https://www.kwai.com/@biel.pv/video/5227421897948479111'];
 
@@ -29,8 +30,9 @@ async function GetUrlsKwai(urls) {
 
   // Inicializa o Puppeteer e abre um novo navegador e página
   const browser = await puppeteer.launch({ 
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
     headless: true, 
-    args: ['--no-sandbox', '--disable-setuid-sandbox'] 
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--single-process', '--no-zygote'] 
   });
   
 
